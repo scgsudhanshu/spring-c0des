@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:context="http://www.springframework.org/schema/context"
+ xmlns:p="http://www.springframework.org/schema/p"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ https://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context.xsd">
+ 
+ <context:annotation-config />
+ <bean class="com.spring.Student" name ="student1">
+ 	<!--  <property name="studentName">
+ 		<value>Sudhanshu Gupta</value>
+ 	</property>
+ 	<property name="studentRollno">
+ 		<value>40</value>
+ 	</property>
+ 	<property name="studentAddress">
+ 		<value>Delhi</value>
+ 	</property>  -->
+ 	
+ 	<!-- Setting Values as attributes -->
+ 	
+ 	<property name="studentName" value = "Sudhanshu Gupta" />
+ 		
+ 	<property name="studentRollno" value="40" />
+ 		
+ 	<property name="studentAddress" value="Lucknow" />
+ 		
+ 	<!-- Setting values using p-schema -->
+	
+	
+	 	
+ </bean>
+ <!-- Second bean -->
+ <bean class="com.spring.Student" name="student2" p:studentName="Mohan" p:studentRollno="36" p:studentAddress="Vijaywada" />
+ 
+ <!-- Third bean -->
+ 
+ <bean class ="com.spring.Student" name="student3" init-method="init" destroy-method="destroy" >
+ 	<property name="studentName" value = "Ayush Gupta" />
+ 		
+ 	<property name="studentRollno" value="43" />
+ 		
+ 	<property name="studentAddress" value="Bangalore" />
+ </bean>
+ 
+  <bean class ="com.spring.Teacher" name="teacher1" >
+ 	<property name="Name" value = "Harsh Gupta" />
+ 		
+  </bean>
+ 
+ <bean class ="com.spring.Subject" name="subject1" >
+ 	<property name="Sname" value = "Maths" />
+ 		
+  </bean>
+ 
+ 
+ </beans>
+ 
