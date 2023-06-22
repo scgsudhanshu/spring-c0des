@@ -1,0 +1,206 @@
+Java Spring Framework : 
+
+1. Dependency Injection : It is a design pattern 
+	IOC : inversion of control : In this technique , spring creates object dyynamically and inject it to the class at the runtime 
+	- No need to use new keyword 
+	
+	Loosely coupled : Make changes in other modules without affecting the whole project 
+	
+2. Spring Modules
+	a) Spring Core : 4 modules : 
+	core , beans : for implementing IOC and dependency injection
+	
+	, context : For XML based , 
+	
+	spEL : To manipulate object graph at runtime
+
+	b) AOP : Aspect oriented programming 
+		Aspect : Used for Interceptor and point cuts to decouple the code 
+		Instrumentation 
+		Messaging : for  messaging based applicaitons 
+		
+		All the above modules help in decoupling the code 
+		
+3. Data access / Integration : It it used to access database 
+	JDBC: Not like traditional JDBC , havce apis to make the work easier  
+	ORM : Can use tools such as Hibernate etc. 
+	OXM : Object XML Mapping  
+	JMS : Java Messaging Service 
+	
+4. Web : Used to create Web Applications 
+5. Test : For unit testing and Integration testing 
+
+Spring IOC Container 
+
+1. To create new object 
+2. To hold the object in the memory 
+3. To make the dependencies for the objetc 
+In short maintaining the life cycle for the object
+
+Inputs: Beans and Config 
+
+Beans : Which java file to manage 
+Config : For telling the configuration 
+
+and using these two it will do dependency Injection on its own 
+Applicaiotn Context : Inherits the bean class , represents IOC container - help in dependency injection 
+
+It does not have a object of its own sinmce it is an interface 
+1. ClasspathXMLApplicaitonContext : Used for wrking with XML
+2. AnnotationConfigApplicaiotnConetxt : Used beans file
+3. FileSystemXMLApplicationcontext : for loading XML from system
+
+
+Dependency Injection can be done in two ways : 
+1. Setter Injection : using setter functions 
+2. Constructor Injection : using constructor fucntions
+
+Confiuguration File : XML file Where we declare beans and dependency
+
+Can handle three types of datatypes : 
+1. Primitive 
+2. Collections : Map , List , Set and Properties
+3. Reference type : Objects of other classes
+
+Practical : 
+
+1. Creating a Maven Project : 
+	pom - project object model
+	
+	
+In constructor injection , during the injection the cinfig finds the string argumnent first by default 
+if string doesnot find then it goes for the orderwise to find the constrictor this creates an ambiguity so to remove this we use type and order attribute 
+
+Life cycle Methods of Spring Beans 
+public void init()
+
+public void destroy()
+
+we can change the name of both the methods but the signatures should be the same 
+
+Life cycle steps : 
+1. Creating a object
+2. Property setting
+3. Calling the init
+4. Reading the data
+5. Calling the destroy method for clean up
+6. Finally destroy
+
+difference between spring and Servlet life cycle : init calls after property initialization
+
+Configure Technique : XML , Spring Interface , Annotations
+
+Using Spring Interfaces : Two functions : 
+
+Initializing Bean : Just like init method
+
+Disposable bean : just like destroy method
+Using Annotations 
+
+Use Annotations : @PostConstruct , PreDestroy
+
+Use class CommonAnnotationBeanPostProcessor for specific annotaitions enabling 
+
+AutoWiring : 
+
+1. In which spring framework injects the dependencies automaticaly 
+2. Not used for primitive types but for reference types 
+
+
+It can be done by two methods : XML and Annotations
+
+Using XML : Modes are : no mode - Autowiring is disabled 
+2. byName : Search by Name - calling the setter  
+3. byType : search by type - calling the setter
+4. constructor : by constructor constructor injection
+5. auto detect : automatic deprecated in Spring 3
+
+Using annotations : @Autowired
+
+Using byName : Bean name and variable name should be the same 
+ 
+
+Using Autowire Annotations
+
+@Autowired before any property , before any setter injection and before any constructor injection
+
+
+Standalone collections : 
+
+Outside the bean tag 
+
+util schema : used for creating standalone collections
+
+
+bean scope : 
+Singleton : Only one object for multiple calls : By default
+Prototype : Mutliptle objects for every call : Explicitly specified
+request : Associated with Web Applications , with Http Request
+session : Associated with Web Applications , with Http Session
+globalsession : With portnet applications
+
+ways to define bean scope : Using XML and Annotations
+
+using XML just add an attribute : scope
+using Annotations : Just use the annotation : @Scope 
+
+Spring Expression language 
+Used to evaluate ,parsing the expression
+We will put the expression in @Value annotations
+Ex : @Value("#{expression}")
+We can use static methods , object methods and variables
+
+Invoking static methods and variable using SPEL
+
+T(class).method(param)
+T(class).variable
+
+Using T is mandatory
+
+Removing XML completely
+
+1. By using Java class for configuration
+	Use @configuration Annotation in the configuration class
+
+
+spring JDBC: 
+
+for connection with Database
+
+spring JDBC is based on the top of the original JDBC but it provides more features 
+we will use JDBCtemplate
+
+Problems of JDBC : 
+1. we need to write a lot of code
+2. Exception handling problem
+3. Repetition of code
+
+JdbcTemplate is a class and it  need object of datasource
+
+DataSoruce is an interface
+DriverManagerDataSource is a class that implements DataSource
+
+Spring JDBC : 
+RowMapper : It is the interface that is used to convert the ResultSet object  to the class object that we use as model or simply it converts the row of a resultset to a class object 
+
+Spring ORM : 
+1. Object Relational Mapping 
+2. Using Spring with other frameworks such as Hibernate , topLink and IBATIS 
+
+Advantages of Spring ORM :
+1. Easy to test
+2. Less Code is Required
+3. Exception Handling 
+4. Integrated Transaction Management 
+
+route : DaoClass -> HibernateTemplate -> SessionFactory -> LocalSessionFactoryBean -> DataSource
+ 
+
+
+
+
+
+  
+
+
+ 
