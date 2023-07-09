@@ -181,7 +181,21 @@ DataSoruce is an interface
 DriverManagerDataSource is a class that implements DataSource
 
 Spring JDBC : 
-RowMapper : It is the interface that is used to convert the ResultSet object  to the class object that we use as model or simply it converts the row of a resultset to a class object 
+RowMapper : It is the interface that is used to convert the ResultSet object  to the class object that we use as model or simply it converts the row of a resultset to a class oxbject 
+
+Need to create a class for the implementation of the Row Mapper 
+
+queryForObject : Single row : query,rowMapper,Arguments
+query : Multiple Objects : 
+
+
+Without using XML
+
+
+
+
+
+
 
 Spring ORM : 
 1. Object Relational Mapping 
@@ -196,9 +210,11 @@ Advantages of Spring ORM :
 route : DaoClass -> HibernateTemplate -> SessionFactory -> LocalSessionFactoryBean -> DataSource
  
 
+LocalSessionFactoryBean : 1. DataSource 2. Hibernate Properties 3. Annotated Class (basically the entities)
 
+for Insert queries : use @transactional annotation above the insert , delete and update queries 
 
-
+Create a bean hibernateTemplateManager in config.xml
 
   
 
