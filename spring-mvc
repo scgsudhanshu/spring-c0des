@@ -1,0 +1,72 @@
+spring MVC : 
+to create web applicaitons using Spring 
+
+1. follows Model , View , Controller Design pattern 
+2. Built on top of Servlet API
+3. Implements features of Spring core like dependency Injection  , IOC 
+
+use case : 
+1. separate Model, view and controller 
+2. Powerful configuration
+3. features of Spring core framework 
+4. Facilitates Rapid Application Development
+5. Flexibility 
+
+MVC Design Pattern : 
+
+Model : Data 
+View : Presentation of the data
+Controller : Interface between model and view 
+
+Working of Spring MVC : 
+
+1. Client send the request to server 
+2. Request first gies to the dispatcher servlet 
+3. Dispatcher servlet send the request to the Controller 
+4. Controller can access the other components such as DAO and Services Layer 
+5. Controller sends the data back to the Dispatcher Servlet in the form of Model and the name of rendering servlet 
+6. Dispatcher servlet then sends the data to the View Resolver 
+7. View Resolver then send the requested view to the Front Controller or Dispatcher Servlet 
+8. Then dispacher servlet send the response to the client
+
+Steps for creation of Web MVC project : 
+1. Configure the dispatcher servlet in the web.xml - configuration - added tags for <servlet-name>
+2. Create Spring Configuration file - configuration - create an xml file with name spring-servlet.xml and config it like config.xml in spring core
+3. Configure view resolver - configuration -  a bean in configuration file of spring-servlet.xml - 2 props : prefix and suffix
+4. Create controller - code -  a java class - using @Controller annotation and use of @RequestMapping("/home") to execute the function on the firing of the /home url
+5. Create view pages - code - 
+
+Naming convention for the config file of spring : spring(name of the dispatcher servlet)-(mandatory to use hyphen) name
+
+Sending data from controller to view 
+
+1. Using Model : by using addAttribute(String key , Object value) and fetch it by using request.getAttribute("{key}")
+2. Using Model and View : by using addObject(String key , Object value)
+
+use of @RequestMapping with class then we have to specify the url of the class first then the method 
+
+like : 
+@RequestMapping("/ABC")
+class ABC
+{
+	@RequestMapping("/method")
+	public void method
+}
+
+url should be : /ABC/method
+
+from view to controller , data comes in the form of methods 
+
+
+use JSP Expression language to get the value without using getAttribute method
+
+${original key name}
+
+for collection use jstl
+
+from view to controller : three methods : 
+1. Traditional approach : using Servlet and getRequestParameter
+2. Using @RequestParam : 
+3. Using @ModelAttribute : 3 in 1 : set the Request Param 2. set the values of the class variables 3. do the work of model.addAttribute
+   Second use of Model Attribute : Above a function for the execution of common repetitive functionalities to avoid the repetiotion of code and it executes before the execution of handler method
+
