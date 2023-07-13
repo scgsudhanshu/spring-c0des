@@ -216,7 +216,7 @@ for Insert queries : use @transactional annotation above the insert , delete and
 
 Create a bean hibernateTemplateManager in config.xml
 
-
+  
 
 
  

@@ -57,16 +57,12 @@ url should be : /ABC/method
 
 from view to controller , data comes in the form of methods 
 
+@Service : To mark the function as a service 
 
-use JSP Expression language to get the value without using getAttribute method
+@Repository : to mark the funciton as a Dao 
 
-${original key name}
+Redirecting in spring :
 
-for collection use jstl
-
-from view to controller : three methods : 
-1. Traditional approach : using Servlet and getRequestParameter
-2. Using @RequestParam : 
-3. Using @ModelAttribute : 3 in 1 : set the Request Param 2. set the values of the class variables 3. do the work of model.addAttribute
-   Second use of Model Attribute : Above a function for the execution of common repetitive functionalities to avoid the repetiotion of code and it executes before the execution of handler method
-
+1. Using HttpServletResponse
+2. Redirect Prefix
+3. RedirectView

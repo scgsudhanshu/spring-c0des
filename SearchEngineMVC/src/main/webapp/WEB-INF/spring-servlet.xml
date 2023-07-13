@@ -12,7 +12,7 @@
   http://www.springframework.org/schema/tx
  http://www.springframework.org/schema/tx/spring-tx.xsd">
  
- <context:component-scan base-package="com.springMVC"></context:component-scan>
+ <context:component-scan base-package="com.springMVCSearch"></context:component-scan>
  <tx:annotation-driven/>
  
  <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" name="viewResolver">
@@ -23,7 +23,7 @@
  		<value>.jsp</value>
  	</property>
  </bean>
- 
+ <!-- 
  <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" name="ds">
 	 <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
 	 <property name="url" value="jdbc:sqlserver://127.0.0.1:1433;databaseName=master" />
@@ -43,7 +43,7 @@
 	</property>
 	<property name="annotatedClasses">
 		<list>
-			<value>com.springMVC.model.Contact</value>
+			<value></value>
 		</list>
 	</property>
 
@@ -59,6 +59,6 @@
 	<property name="sessionFactory" ref="session"></property>
 </bean>
 
-
+ -->
  
  </beans>
