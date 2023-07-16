@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,42 +9,18 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link href ="<c:url value="/resources/css/style.css" />" />
-	<script src ="<c:url value="/resources/js/script.js" />" ></script>
+	
+	
 	</head>
 	<body>
-    <div class="container">
+    <div class="container m-10">
     
-    	<div class="card mx-auto mt-5 bg-secondary" style="width:50%;">
+    	<h1>Welcome ${ name }</h1>
     		
-    		<div class="card-body py-5">
-    		
-    			<h3 class="text-center text-white">My Search</h3>
-    		
-    			<form class="mt-3" action="search">
-    				<div class="form-group">
-    				
-    					<input 
-    					type="text" 
-    					id="searchquery" 
-    					name="searchquery" 
-    					placeholder ="Enter Your Keyword" 
-    					class="form-control" />
-    					
-    					</div>
-    					
-    					<div class="container text-center">
-    					<button class="btn btn-outline-light">Search</button>
-    					</div>
-    				</div>
-    			
-    			</form>
-    		
-    		</div>
     		
     	</div>
     
-    </div>
+    
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

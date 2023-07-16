@@ -66,3 +66,69 @@ Redirecting in spring :
 1. Using HttpServletResponse
 2. Redirect Prefix
 3. RedirectView
+
+Using inner class 
+
+for the inner class use object.field_name in the name field of the form control
+
+Serving static file resources in Spring MVC 
+
+File uploading in Spring MVC : 
+
+using multipart resolver 
+1. use dependency commons io and comons file upload
+2. Add enctype="multipart/form-data"
+3. Add CommonsMultipartFile in the argument of handler  
+
+
+PathVariable Annotation : Mostly used during creation of Rest APIs
+to bind method attribute to URI template variables
+URI template example : 
+@RequestMapping("/book/{id}")
+void book(@PathVariable("id") int id)
+
+Exception Handling in Spring MVC :
+ 
+use @ExceptionHandler(value = Exception.class) for general exception handling 
+otherwise 
+use @ExceptionHandler(NullPointerException.class) for null pointer exception and other exceptions
+
+Above Exception Handling is for one handler only
+
+@ControllerAdvice : for making a class as exception handler 
+@ResponseStatus(value=HttpStatus.INTERNAL_SERVER_ERROR) for sending the code
+
+spring Interceptor : Used to perform an action before handler hanlding the request , after handling the request and after rendering the view
+by implementing the Interface Handler Interceptor
+
+Three Methods : preHandler , postHandle , afterCompletion
+
+preHandler : Used to stop the request before the handling by the handler if it return true then execution by the handler takes place otherwise no execution takes place by the handler 
+
+postHandle : After handling by the handler 
+
+afterCompletion : After view displaying
+
+AOP : It increases modularity by separation of main code and cross cutting concerns 
+2. Allows us to appliy external service in our main service without modifying the code e.g. Agar hme apni service se phle ya baad me kcuhh chalana h to use code ko Aspect bolte h 
+3. Cross cutting concern : External service 
+4. Complememnts OOPS 
+
+Aspect : Modularization of a concern that cuts across multiple classes basically the set of code that executes 
+
+Join Point : Any code execution point : in spring it is method execution 
+
+Advice : Action that performed by the aspect on the join point 
+
+Point Cut : Expression for matching of join points 
+
+Types of Advices : After , Before , After-Returning : Method returning successfully , After-throwing : After throwing error 
+
+use pattern in @Before and @After : 
+
+like @Before("execution(*(it is for all types of return type) (packeage name and class name and function (* for all methods )(..)(two dots are used for args)))")
+
+
+ 
+
+  

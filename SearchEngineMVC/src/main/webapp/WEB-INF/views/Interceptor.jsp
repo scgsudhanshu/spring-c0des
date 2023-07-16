@@ -20,7 +20,7 @@
     		
     			<h3 class="text-center text-white">My Search</h3>
     		
-    			<form class="mt-3" action="search">
+    			<form class="mt-3" action="welcome">
     				<div class="form-group">
     				
     					<input 
@@ -33,7 +33,7 @@
     					</div>
     					
     					<div class="container text-center">
-    					<button class="btn btn-outline-light">Search</button>
+    					<button class="btn btn-outline-light">Submit</button>
     					</div>
     				</div>
     			

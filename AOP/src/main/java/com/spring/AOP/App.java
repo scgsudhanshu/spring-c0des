@@ -1,0 +1,23 @@
+package com.spring.AOP;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import com.spring.AOP.services.*;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+        
+        ApplicationContext context = new ClassPathXmlApplicationContext("com/spring/AOP/config.xml");
+        
+        PaymentService payment =  context.getBean("payment",PaymentService.class);
+        
+        payment.makePayemnt(234);
+    }
+}
