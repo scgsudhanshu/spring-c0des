@@ -1,5 +1,6 @@
 package com.airlineBooking.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +26,11 @@ public class UserService {
 		Optional<User> user_get = this.userdao.findById(id);
 		User user_ret = user_get.get();
 		return user_ret;
+	}
+	
+	public List<String> getstates()
+	{
+		List<String> states = this.userdao.getStates();
+		return states;
 	}
 }

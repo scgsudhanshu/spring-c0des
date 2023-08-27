@@ -1,10 +1,17 @@
 package com.airlineBooking.controllers;
 
 import java.net.http.HttpClient.Redirect;
+import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 import java.util.Properties;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,17 +19,26 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.airlineBooking.entities.AvailableAirlines;
 import com.airlineBooking.entities.User;
+import com.airlineBooking.services.AirlineAvailServices;
 import com.airlineBooking.services.UserService;
+
+import jakarta.persistence.EntityManager;
 
 @Controller
 public class Controllers {
 
 	@Autowired
 	private UserService userservice;
+	
+	@Autowired
+	private AirlineAvailServices airlineservice;
 	
 	@RequestMapping("/home")
 	public String Home()
@@ -98,4 +114,37 @@ public class Controllers {
 		modelandview.setViewName("info");
 		return modelandview;
 	}
+	
+	@GetMapping("/startingpoint")
+	@ResponseBody
+	public List<String> getListofStartingpoint()
+	{
+		
+		List<String> states = userservice.getstates();
+		return states;
+		
+	}
+	
+	@GetMapping("/destinationpoint")
+	@ResponseBody
+	public List<String> getListofDestinationpoint()
+	{
+		
+		List<String> states = userservice.getstates();
+		return states;
+		
+	}
+	
+	@RequestMapping("/searchflight")
+	public ModelAndView searchFlight(@RequestParam("starting") String starting , 
+			@RequestParam("destination") String destination,
+			@RequestParam("date") Date date , ModelAndView modelview)
+	{
+		List<AvailableAirlines> airlines = airlineservice.searchFlightService(starting, destination, new SimpleDateFormat(date));
+		System.out.println("airlines : "+airlines);
+		modelview.addObject("airlines",airlines);
+		modelview.setViewName("searchflight");
+		return modelview;
+	}
+	
 }
