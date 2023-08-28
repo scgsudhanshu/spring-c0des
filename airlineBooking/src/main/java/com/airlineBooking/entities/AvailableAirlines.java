@@ -26,15 +26,21 @@ public class AvailableAirlines {
 	int economy_seats;
 	int business_seats;
 	int first_class_seats;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
 	@Temporal(TemporalType.DATE)
 	Date date_time_departure;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
 	@Temporal(TemporalType.DATE)
 	Date date_time_arrival;
 	String airport_from_id;
 	String airport_to_id;
 	
+	
+	
+	public AvailableAirlines() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public String getAirline_No() {
 		return Airline_No;
 	}
@@ -133,7 +139,7 @@ public class AvailableAirlines {
 	}
 	@Override
 	public String toString() {
-		return "AvailableAirlines [Airline_No=" + Airline_No + ", Airline_Name=" + Airline_Name + ", airport_from="
+		return "[Airline_No=" + Airline_No + ", Airline_Name=" + Airline_Name + ", airport_from="
 				+ airport_from + ", airport_to=" + airport_to + ", region_from=" + region_from + ", region_to="
 				+ region_to + ", economy_seats=" + economy_seats + ", business_seats=" + business_seats
 				+ ", first_class_seats=" + first_class_seats + ", date_time_departure=" + date_time_departure

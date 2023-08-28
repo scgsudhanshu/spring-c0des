@@ -1,6 +1,8 @@
 package com.airlineBooking.controllers;
 
 import java.net.http.HttpClient.Redirect;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -138,9 +140,12 @@ public class Controllers {
 	@RequestMapping("/searchflight")
 	public ModelAndView searchFlight(@RequestParam("starting") String starting , 
 			@RequestParam("destination") String destination,
-			@RequestParam("date") Date date , ModelAndView modelview)
+			@RequestParam("date") String date , ModelAndView modelview) throws ParseException
 	{
-		List<AvailableAirlines> airlines = airlineservice.searchFlightService(starting, destination, new SimpleDateFormat(date));
+		System.out.println("date from request :  "+date);
+		date = date+" 00:00:00 AM";
+		Date date1 = new SimpleDateFormat("yyyy-MM-dd").parse(date.replace("T"," "));
+		List<AvailableAirlines> airlines = airlineservice.searchFlightService(starting, destination, date1);
 		System.out.println("airlines : "+airlines);
 		modelview.addObject("airlines",airlines);
 		modelview.setViewName("searchflight");
