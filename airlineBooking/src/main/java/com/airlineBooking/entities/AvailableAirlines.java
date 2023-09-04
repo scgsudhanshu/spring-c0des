@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
-@Entity()
+@Entity
 @Table(name="tbl_available_airlines")
 public class AvailableAirlines {
 	
@@ -26,11 +26,11 @@ public class AvailableAirlines {
 	int economy_seats;
 	int business_seats;
 	int first_class_seats;
-	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
-	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	//@Temporal(TemporalType.DATE)
 	Date date_time_departure;
-	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
-	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	//@Temporal(TemporalType.DATE)
 	Date date_time_arrival;
 	String airport_from_id;
 	String airport_to_id;

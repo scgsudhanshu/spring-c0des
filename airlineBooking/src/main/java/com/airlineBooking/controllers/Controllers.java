@@ -3,6 +3,7 @@ package com.airlineBooking.controllers;
 import java.net.http.HttpClient.Redirect;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -144,12 +145,47 @@ public class Controllers {
 	{
 		System.out.println("date from request :  "+date);
 		date = date+" 00:00:00 AM";
-		Date date1 = new SimpleDateFormat("yyyy-MM-dd").parse(date.replace("T"," "));
+		Date date1 = new SimpleDateFormat("yyyy-MM-dd ").parse(date);
+		
+//		SimpleDateFormat format = new SimpleDateFormat("yyyy-mm-dd");
+//		//Calendar calendar = format.getCalendar();
+//		
+//		String date1 = format.format(date);
+//		Date date2 = new SimpleDateFormat("yyyy-MM-dd ").parse(date);
+		System.out.println("date after processing :  "+date1);
 		List<AvailableAirlines> airlines = airlineservice.searchFlightService(starting, destination, date1);
 		System.out.println("airlines : "+airlines);
 		modelview.addObject("airlines",airlines);
 		modelview.setViewName("searchflight");
 		return modelview;
+	}
+	
+	@RequestMapping("/adminform")
+	public String adminform()
+	{
+		return "sample";
+	}
+	
+	@RequestMapping("/adminSubmit")
+	public void SubmitSample(@ModelAttribute AvailableAirlines avail_airlines)
+	{
+		System.out.println("here in admin submit");
+		System.out.println("Data from the request  : " + avail_airlines);
+		AvailableAirlines a = airlineservice.saveAirlines(avail_airlines);
+		System.out.println("retunred object >>>>> "+a);
+	}
+	
+	@SuppressWarnings("deprecation")
+	@GetMapping("/getflight/{id}")
+	public void getFlight(@PathVariable("id") String id)
+	{
+		
+		System.out.println("FLight shown >>>>> ");
+		Optional<AvailableAirlines> aa = airlineservice.getAirline(id);
+		AvailableAirlines ab = aa.get();
+		System.out.println("aa : "+ab);
+		System.out.println((ab.getDate_time_arrival().getMonth()+1)+"~"+ab.getDate_time_arrival().getDate()+"~"+(ab.getDate_time_arrival().getYear()+1900));
+		
 	}
 	
 }
