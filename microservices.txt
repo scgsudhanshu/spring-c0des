@@ -1,0 +1,46 @@
+Microservices : 
+
+Monolithic Architecture : Single code base for multiple modules 
+
+Disadvantages : Difficult to scale
+2. Bug may cause down to whole application
+3. For redeployment , whole aplplication need to be down
+4. Difficult to adapt new code changes
+
+Advantages : 1. simple to develop and deploy 
+2. Netwrok latency is low 
+
+Microservices : Small services that work together 
+2. they are communicated with each other through lightweight protocols like Http
+3. They have different code bases to work with
+4. They provide loose coupling 
+
+Advantages : Easy to change and upgrade one service rather than upgrading all 
+2. One can change one service without impacting others 
+3. Easily use different technologies for different services 
+4. Less dependency and loose coupling 
+
+Microservices Architecture : 
+
+								m1
+1. User client -> API Gateway ---------------->	service 1
+						|________m2___________> service 2
+						|________m3___________> service 3
+						
+				API gateway : It is use to provide single endpoint for the services since every service may be has other server and different ports 
+								Provides security or Authorization 
+								
+
+				Hystrix Dashboard : It is used as Fault Tolerance Library and used to manage when one service is down 
+				
+				Eureka Service Registry : It is used as registry for all the services and it is itself a microservice 
+				
+				Config server : It is used when we have to make some config changes globally and we provide the global configuration through github 
+
+2.  Interaction between two microservices : Using Http Protocol and using REST Apis
+
+RestTemplate : Used to communicate one service with another service : or to consume the Restful service 
+
+use eureka.instance.hostname and @LoadBalanced to use the service with the registered service name 
+
+API Gateway : It is used to contact all the services with the common end point : It itself is a microservice 
