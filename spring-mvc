@@ -128,6 +128,7 @@ use pattern in @Before and @After :
 
 like @Before("execution(*(it is for all types of return type) (packeage name and class name and function (* for all methods )(..)(two dots are used for args)))")
 
+@Transactional is used only with public classes , it creates the proxy bean and then implements , it is a level of abstraction and not shown to the public 
 
  
 
